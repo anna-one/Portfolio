@@ -1,3 +1,696 @@
-body {
-  background-color: red;
+@import "../scss/reset.scss";
+@import "../scss/fonts.scss";
+@import "../scss/mixins.scss";
+@import "../scss/variables.scss";
+
+html {
+  font-size: 10px;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Libre Franklin;
+}
+
+.container-global {
+  width: 1109px;
+  margin: 0 auto;
+
+  @include media-tablet {
+    width: 80%;
+  }
+}
+
+.button-to-top {
+  display: flex;
+  position: fixed;
+  top: 90%;
+  left: 90%;
+  outline: none;
+}
+
+.burger-menu {
+  display: none;
+
+  @include media-mobile {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    left: 40px;
+
+    background: none;
+    border: none;
+  }
+}
+
+// HERO START
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../img/hero-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+
+  @include media-tablet {
+    width: 100%;
+    min-height: auto;
+  }
+
+  &__container {
+    padding-top: 93px;
+    padding-bottom: 240px;
+
+    @include media-tablet {
+      padding-top: 40px;
+      padding-bottom: 80px;
+    }
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
+
+  &__content {
+    margin-top: 145px;
+
+    @include media-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      margin-top: 50px;
+    }
+  }
+
+  &__title {
+    font-size: map-get($font-size, big);
+    font-weight: map-get($font-weight, regular);
+    line-height: map-get($line-height, small);
+    color: map-get($colors, text-hero);
+
+    @include media-tablet {
+      font-size: 4.8rem;
+      font-weight: 400;
+      line-height: 1.21;
+      color: map-get($colors, text-hero);
+    }
+
+    @include media-mobile {
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: map-get($colors, text-hero);
+    }
+  }
+
+  &__text {
+    font-size: map-get($font-size, medium);
+    font-weight: map-get($font-weight, regular);
+    line-height: map-get($line-height, extra-small);
+    color: map-get($colors, text-hero);
+
+    margin-top: 26px;
+    margin-bottom: 106px;
+
+    @include media-tablet {
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: map-get($colors, text-hero);
+    }
+
+    @include media-mobile {
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.23;
+      color: map-get($colors, text-hero);
+
+      margin-top: 13px;
+      margin-bottom: 41px;
+    }
+  }
+  &__button {
+    @include reg-small;
+    line-height: map-get($line-height, small);
+    color: map-get($colors, text-hero);
+
+    @include media-mobile {
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.23;
+      color: map-get($colors, text-hero);
+    }
+  }
+}
+
+// HERO END
+
+// HEADER START
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    text-decoration: none;
+    font-size: map-get($font-size, medium);
+    font-weight: map-get($font-weight, bold);
+    line-height: map-get($line-height, extra-small);
+    color: map-get($colors, text-hero);
+
+    @include media-mobile {
+      display: block;
+      margin: 0 auto 50px;
+    }
+    @include media-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include media-tablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include media-mobile {
+    padding-top: 36px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 60px;
+
+    @include media-mobile {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    text-decoration: none;
+    @include reg-small;
+    line-height: map-get($line-height, small);
+    color: map-get($colors, text-hero);
+  }
+  &__link::before {
+    content: attr(data-text);
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+    font-weight: bold;
+  }
+
+  &__link:hover{
+    font-weight: 700;
+  }
+}
+// HEADER END
+
+// ABOUT START
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__container {
+    padding-top: 60px;
+    padding-bottom: 115px;
+
+    @include media-mobile {
+      padding-top: 30px;
+      padding-bottom: 50px;
+    }
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
+
+  @include media-mobile {
+    width: 100%;
+  }
+
+  &__title {
+    @include secondary-title;
+
+    @include media-tablet {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    margin-top: 76px;
+
+    @include reg-small-big;
+
+    @include media-tablet {
+      margin-top: 40px;
+
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.87;
+      color: map-get($colors, text-main);
+    }
+
+    @include media-mobile {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: map-get($colors, text-main);
+    }
+  }
+}
+// ABOUT END
+
+// SKILLS START
+.skills {
+  background-color: map-get($colors, bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__container {
+    padding-top: 93px;
+    padding-bottom: 145px;
+
+    @include media-tablet {
+      padding-top: 50px;
+      padding-bottom: 75px;
+    }
+
+    @include media-mobile {
+      padding-top: 30px;
+      padding-bottom: 50px;
+    }
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
+
+  @include media-mobile {
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 86px;
+
+    @include secondary-title;
+
+    @include media-tablet {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media-tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    height: 340px;
+    width: 350px;
+
+    @include media-mobile {
+      height: 220px;
+      width: 215px;
+    }
+  }
+}
+
+.skill-set {
+  @include media-tablet {
+    margin-top: 35px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include media-tablet {
+      align-items: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include media-tablet {
+      align-self: stretch;
+    }
+  }
+
+  &__item:first-of-type {
+    margin-bottom: 45px;
+
+    @include media-mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__name {
+    width: 189px;
+    @include semi-bold-small-medium;
+
+    @include media-tablet {
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.56;
+      color: map-get($colors, text-main);
+    }
+
+    @include media-mobile {
+      width: 98px;
+
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 2.08;
+      color: map-get($colors, text-main);
+    }
+  }
+
+  &__value {
+    @include reg-small;
+    line-height: map-get($line-height, medium);
+    color: map-get($colors, text);
+
+    @include media-tablet {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.56;
+      color: map-get($colors, text-main);
+    }
+
+    @include media-mobile {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 2.08;
+      color: map-get($colors, text-main);
+    }
+  }
+
+  &__progress {
+    height: 24px;
+    width: 446px;
+    background-color: map-get($colors, progress-back);
+
+    @include media-tablet {
+      width: 346px;
+    }
+
+    @include media-mobile {
+      width: 210px;
+    }
+  }
+
+  &__progress-track {
+    height: 100%;
+    background-color: map-get($colors, progress);
+
+    &--80-percents {
+      width: 80%;
+    }
+
+    &--70-percents {
+      width: 70%;
+    }
+
+    &--60-percents {
+      width: 60%;
+    }
+  }
+}
+
+// SKILLS END
+
+// PORTFOLIO START
+.portfolio {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__container {
+    padding-top: 93px;
+    padding-bottom: 139px;
+
+    @include media-tablet {
+      padding-top: 40px;
+      padding-bottom: 60px;
+    }
+  }
+
+  @include media-tablet {
+    width: 100%;
+  }
+
+  @include media-mobile {
+    width: 100%;
+  }
+
+  &__title {
+    @include secondary-title;
+
+    @include media-tablet {
+      text-align: center;
+    }
+  }
+
+  &__content {
+    margin-top: 86px;
+    display: flex;
+    gap: 125px;
+
+    @include media-tablet {
+      flex-direction: column;
+      margin-top: 35px;
+      gap: 0;
+    }
+  }
+}
+
+.portfolio-information {
+  &__title {
+    @include semi-bold-small-medium;
+
+    @include media-tablet {
+      text-align: center;
+    }
+
+    @include media-mobile {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.79;
+      color: map-get($colors, text-main);
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    margin-bottom: 45px;
+
+    @include reg-small;
+    line-height: map-get($line-height, big);
+    color: map-get($colors, text);
+
+    @include media-tablet {
+      text-align: center;
+
+      @include media-tablet {
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.56;
+        color: map-get($colors, text-main);
+      }
+
+      @include media-mobile {
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 2.08;
+        color: map-get($colors, text-main);
+      }
+    }
+  }
+
+  &__arrow-buttons-wrapper {
+    margin-top: 235px;
+    display: flex;
+    gap: 14px;
+
+    @include media-tablet {
+      display: none;
+    }
+  }
+
+  &__arrow-button {
+    display: flex;
+
+    border: none;
+    background: none;
+  }
+}
+
+.portfolio-photos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+
+  @include media-tablet {
+    gap: 25px;
+  }
+
+  @include media-mobile {
+    gap: 14px;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include media-tablet {
+      gap: 25px;
+    }
+
+    @include media-mobile {
+      gap: 14px;
+    }
+  }
+
+  &__column:first-of-type {
+    width: 350px;
+
+    @include media-tablet {
+      max-width: 300px;
+    }
+
+    @include media-mobile {
+      max-width: 160px;
+    }
+  }
+
+  &__column:last-of-type {
+    width: 255px;
+    @include media-tablet {
+      max-width: 205px;
+    }
+    @include media-mobile {
+      max-width: 120px;
+    }
+  }
+}
+
+// PORTFOLIO END
+
+// FOOTER START
+.footer {
+  width: 100%;
+  background-color: map-get($colors, bg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 93px;
+  padding-bottom: 189px;
+
+  @include media-tablet {
+    padding-top: 35px;
+    padding-bottom: 30px;
+  }
+
+  &__container {
+    @include media-tablet {
+      width: 80%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    @include media-mobile {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__title {
+    @include secondary-title;
+
+    margin-bottom: 51px;
+
+    @include media-tablet {
+      text-align: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    gap: 14px;
+
+    width: 380px;
+
+    @include media-mobile {
+      width: 120px;
+      margin-bottom: 34px;
+    }
+  }
+
+  &__list-item {
+    display: flex;
+  }
+
+  &__item-link {
+    @include reg-small;
+    line-height: map-get($line-height, small);
+    color: map-get($colors, text);
+
+    text-decoration: none;
+
+    &--tel{
+      font-size: 1.5rem;
+    }
+
+    @include media-mobile {
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.21;
+      color: map-get($colors, text-main);
+
+      &--tel{
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+// FOOTER END

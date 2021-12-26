@@ -1,0 +1,39 @@
+@mixin secondary-title {
+  font-size: map-get($font-size, medium);
+  font-weight: map-get($font-weight, bold);
+  line-height: map-get($line-height, extra-small);
+  color: map-get($colors, text-main);
+}
+
+
+@mixin reg-small {
+  font-size: map-get($font-size, small);
+  font-weight: map-get($font-weight, regular);
+  color: map-get($colors, text-main);
+}
+
+@mixin reg-small-big {
+  font-size: map-get($font-size, small);
+  font-weight: map-get($font-weight, regular);
+  line-height: map-get($line-height, big);
+  color: map-get($colors, text-main);
+}
+
+@mixin semi-bold-small-medium {
+  font-size: map-get($font-size, small);
+  font-weight: map-get($font-weight, semi-bold);
+  line-height: map-get($line-height, medium);
+  color: map-get($colors, text-main);
+}
+
+@mixin media-tablet {
+  @media screen and (max-width: map-get($media-screen, tablet)) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media screen and (max-width: map-get($media-screen, mobile)) {
+    @content;
+  }
+}

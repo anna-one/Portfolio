@@ -1,0 +1,41 @@
+$colors: (
+  bg: #fffaf2,
+  text-main: #333333,
+  text-hero: #ffffff,
+  progress: #c66c49,
+  progress-back: #f5d6ab,
+);
+
+
+// MEDIA
+
+$media-screen: (
+  tablet: 1200px,
+  mobile: 600px,
+);
+
+
+
+
+
+// FONT
+
+$font-size: (
+  extra-small: 1.5rem,
+  small: 1.8rem,
+  medium: 2.4rem,
+  big: 6.4rem,
+);
+
+$font-weight: (
+  regular: 400,
+  semi-bold: 600,
+  bold: 700,
+);
+
+$line-height: (
+  extra-small: 1.21,
+  small: 1.22,
+  medium: 1.39,
+  big: 1.66,
+);
